@@ -7,6 +7,7 @@ Claude Code project skills for design and frontend craft. These load automatical
 | [emil-kowalski-design](./emil-kowalski-design/SKILL.md) | Emil Kowalski's design engineering philosophy: animation decisions, easing/duration values, component polish, and the invisible details that make UI feel right. | This repo (`skills/emil-design-eng`), by [Emil Kowalski](https://animations.dev/) |
 | [impeccable-design](./impeccable-design/SKILL.md) | Full design-direction toolkit: craft, shape, audit, critique, polish, typeset, colorize, animate, and more, with bundled detector scripts and companion agents (in `../agents/`). | Vendored from [pbakaus/impeccable](https://github.com/pbakaus/impeccable) v4.0.2 (Apache 2.0, see `impeccable-design/LICENSE` and `NOTICE.md`) |
 | [taste](./taste/SKILL.md) | Anti-slop frontend skill for landing pages, portfolios, and redesigns: reads the brief, infers the design direction, ships non-templated interfaces. | Vendored from [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) (`design-taste-frontend`, MIT, see `taste/LICENSE`) |
+| [premium-website-designer](./premium-website-designer/SKILL.md) | End-to-end premium website workflow: brand discovery → strategy → creative direction → UX → copy → visual design → motion → development → performance → QA, with a fixed output order. | Authored for this repo |
 
 ## Notes on the vendored copies
 
@@ -16,5 +17,6 @@ Claude Code project skills for design and frontend craft. These load automatical
 
 ## Rough division of labor
 
+- Building a complete website from a business brief → `premium-website-designer` for the full agency-style process.
 - Building something new and want a strong direction → `impeccable-design` (or `taste` for landing pages/portfolios specifically).
 - Polishing motion, animation values, and interaction feel → `emil-kowalski-design` (plus the repo's standalone skills in `/skills` for reviews and audits).
