@@ -65,7 +65,7 @@ This is your shortcut to great interfaces. A shortcut to stand out in a sea of s
 
 311 skills imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. They cover frontend and design, backend and API design, many languages and frameworks, testing, security, DevOps, research, content and agent workflows.
 
-Only ECC's skills are included. Its agents, hooks, commands and rules depend on ECC's own installer and aren't part of this repo, so a few skills may mention pieces that aren't here. For those, install [ECC](https://github.com/affaan-m/ECC) itself.
+ECC's agents, commands and hooks are included too; see [ECC agents, commands and hooks](#ecc-agents-commands-and-hooks). ECC's rules, MCP configs and installer aren't, so a few skills may mention pieces that aren't here. For those, install [ECC](https://github.com/affaan-m/ECC) itself.
 
 <details>
 <summary>All 311 ECC skills</summary>
@@ -386,7 +386,17 @@ Only ECC's skills are included. Its agents, hooks, commands and rules depend on 
 
 </details>
 
+## ECC agents, commands and hooks
+
+Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. The `npx skills` installer only installs skills, so these are set up by hand.
+
+- **[`agents/`](./agents)**: 71 Claude Code subagents, such as `architect`, `code-explorer` and `build-error-resolver`. To use one, copy its `.md` file into `~/.claude/agents/` (or `.claude/agents/` in a project).
+- **[`commands/`](./commands)**: 97 slash commands, such as `/code-review`, `/build-fix` and `/checkpoint`. To use one, copy its `.md` file into `~/.claude/commands/` (or `.claude/commands/` in a project).
+- **[`hooks/`](./hooks)**: ECC's Claude Code hook configuration, plus the Node scripts it runs under [`scripts/hooks/`](./scripts/hooks) and [`scripts/lib/`](./scripts/lib) (only the files the hooks need). See [`hooks/README.md`](./hooks/README.md) for what each hook does.
+
+The hooks run Node scripts on every tool call, prompt and session event. Don't paste `hooks/hooks.json` into your settings by hand. It finds its scripts through the plugin root, so enable it with ECC's installer (`bash ./install.sh --target claude --modules hooks-runtime --enable-hooks`, run from a clone of ECC) or by installing ECC as a plugin.
+
 ## License
 
 - Design engineering skills: MIT, © 2026 Emil Kowalski. See [`LICENSE`](./LICENSE).
-- ECC skills: MIT, © 2026 Affaan Mustafa. See [`skills/ECC-LICENSE`](./skills/ECC-LICENSE).
+- ECC skills, agents, commands, hooks and scripts: MIT, © 2026 Affaan Mustafa. See [`skills/ECC-LICENSE`](./skills/ECC-LICENSE).
