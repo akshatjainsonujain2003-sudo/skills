@@ -7,7 +7,26 @@ A collection of agent skills for Claude Code and other coding agents. It brings 
 
 ## Install
 
-Install everything:
+### As a Claude Code plugin
+
+Installs every skill, agent, command and hook at once:
+
+```
+/plugin install skills --marketplace akshatjainsonujain2003-sudo/skills
+```
+
+On Claude Code versions older than 2.1.275, add the marketplace first:
+
+```
+/plugin marketplace add akshatjainsonujain2003-sudo/skills
+/plugin install skills@akshat-skills
+```
+
+The plugin turns ECC's hooks on by default. To turn them off, or to pick the `minimal`, `standard` or `strict` hook profile, change the plugin's `hooks_enabled` and `hook_profile` options.
+
+### Skills only, with `npx skills`
+
+Works with Claude Code and other coding agents, but installs only skills. Install every skill:
 
 ```bash
 npx skills@latest add akshatjainsonujain2003-sudo/skills
@@ -388,13 +407,13 @@ ECC's agents, commands and hooks are included too; see [ECC agents, commands and
 
 ## ECC agents, commands and hooks
 
-Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. The `npx skills` installer only installs skills, so these are set up by hand.
+Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. Installing this repo [as a Claude Code plugin](#as-a-claude-code-plugin) sets all of them up. The `npx skills` installer only installs skills; without the plugin, set these up by hand as below.
 
 - **[`agents/`](./agents)**: 71 Claude Code subagents, such as `architect`, `code-explorer` and `build-error-resolver`. To use one, copy its `.md` file into `~/.claude/agents/` (or `.claude/agents/` in a project).
 - **[`commands/`](./commands)**: 97 slash commands, such as `/code-review`, `/build-fix` and `/checkpoint`. To use one, copy its `.md` file into `~/.claude/commands/` (or `.claude/commands/` in a project).
 - **[`hooks/`](./hooks)**: ECC's Claude Code hook configuration, plus the Node scripts it runs under [`scripts/hooks/`](./scripts/hooks) and [`scripts/lib/`](./scripts/lib) (only the files the hooks need). See [`hooks/README.md`](./hooks/README.md) for what each hook does.
 
-The hooks run Node scripts on every tool call, prompt and session event. Don't paste `hooks/hooks.json` into your settings by hand. It finds its scripts through the plugin root, so enable it with ECC's installer (`bash ./install.sh --target claude --modules hooks-runtime --enable-hooks`, run from a clone of ECC) or by installing ECC as a plugin.
+The hooks run Node scripts on every tool call, prompt and session event. Don't paste `hooks/hooks.json` into your settings by hand. It finds its scripts through the plugin root, so enable it by installing this repo as a plugin, or with ECC's own installer (`bash ./install.sh --target claude --modules hooks-runtime --enable-hooks`, run from a clone of ECC).
 
 ## License
 
