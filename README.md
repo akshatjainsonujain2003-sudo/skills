@@ -84,7 +84,7 @@ This is your shortcut to great interfaces. A shortcut to stand out in a sea of s
 
 311 skills imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. They cover frontend and design, backend and API design, many languages and frameworks, testing, security, DevOps, research, content and agent workflows.
 
-ECC's agents, commands and hooks are included too; see [ECC agents, commands and hooks](#ecc-agents-commands-and-hooks). ECC's rules, MCP configs and installer aren't, so a few skills may mention pieces that aren't here. For those, install [ECC](https://github.com/affaan-m/ECC) itself.
+ECC's agents, commands, hooks, rules and MCP configs are included too; see [ECC agents, commands, hooks, rules and MCP configs](#ecc-agents-commands-hooks-rules-and-mcp-configs). ECC's installer isn't, so a few skills may mention pieces that aren't here. For those, install [ECC](https://github.com/affaan-m/ECC) itself.
 
 <details>
 <summary>All 311 ECC skills</summary>
@@ -405,9 +405,9 @@ ECC's agents, commands and hooks are included too; see [ECC agents, commands and
 
 </details>
 
-## ECC agents, commands and hooks
+## ECC agents, commands, hooks, rules and MCP configs
 
-Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. Installing this repo [as a Claude Code plugin](#as-a-claude-code-plugin) sets all of them up. The `npx skills` installer only installs skills; without the plugin, set these up by hand as below.
+Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. Installing this repo [as a Claude Code plugin](#as-a-claude-code-plugin) sets up the agents, commands and hooks. The `npx skills` installer only installs skills; without the plugin, set those up by hand as below. Rules and MCP configs are always set up by hand.
 
 - **[`agents/`](./agents)**: 71 Claude Code subagents, such as `architect`, `code-explorer` and `build-error-resolver`. To use one, copy its `.md` file into `~/.claude/agents/` (or `.claude/agents/` in a project).
 - **[`commands/`](./commands)**: 97 slash commands, such as `/code-review`, `/build-fix` and `/checkpoint`. To use one, copy its `.md` file into `~/.claude/commands/` (or `.claude/commands/` in a project).
@@ -415,7 +415,22 @@ Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at 
 
 The hooks run Node scripts on every tool call, prompt and session event. Don't paste `hooks/hooks.json` into your settings by hand. It finds its scripts through the plugin root, so enable it by installing this repo as a plugin, or with ECC's own installer (`bash ./install.sh --target claude --modules hooks-runtime --enable-hooks`, run from a clone of ECC).
 
+### Rules
+
+[`rules/`](./rules) holds ECC's coding rules: a language-agnostic [`common/`](./rules/common) set (coding style, code review, git workflow, testing, security and more) plus sets for 21 languages and frameworks, such as `typescript`, `python`, `golang`, `react` and `rust`. Claude Code plugins don't load rules, so copy the ones you want into `~/.claude/rules/ecc/` (or `.claude/rules/ecc/` in a project). Copy whole folders, and always include `common`, because the language rules refer to `../common/`:
+
+```bash
+mkdir -p ~/.claude/rules/ecc
+cp -r rules/common rules/typescript ~/.claude/rules/ecc/
+```
+
+[`rules/README.md`](./rules/README.md) also mentions an `./install.sh` script. That's ECC's installer, which isn't part of this repo.
+
+### MCP configs
+
+[`mcp-configs/mcp-servers.json`](./mcp-configs/mcp-servers.json) is ECC's catalog of 34 MCP server configs, such as GitHub, Playwright, Context7, Supabase and Vercel. It's a template, not a working config: many entries have placeholders like `YOUR_GITHUB_PAT_HERE` or `/path/to/your/projects`. The plugin doesn't turn any of them on. Copy the servers you want into the `mcpServers` section of `~/.claude.json` (or a project's `.mcp.json`) and fill in your own values. ECC suggests keeping fewer than 10 enabled to save context.
+
 ## License
 
 - Design engineering skills: MIT, © 2026 Emil Kowalski. See [`LICENSE`](./LICENSE).
-- ECC skills, agents, commands, hooks and scripts: MIT, © 2026 Affaan Mustafa. See [`skills/ECC-LICENSE`](./skills/ECC-LICENSE).
+- ECC skills, agents, commands, hooks, scripts, rules and MCP configs: MIT, © 2026 Affaan Mustafa. See [`skills/ECC-LICENSE`](./skills/ECC-LICENSE).
