@@ -1,0 +1,21 @@
+{
+  "name": "akshat-skills",
+  "owner": {
+    "name": "akshatjainsonujain2003-sudo",
+    "url": "https://github.com/akshatjainsonujain2003-sudo"
+  },
+  "metadata": {
+    "description": "Design engineering skills plus ECC's skills, agents, commands and hooks"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Emil Kowalski's design engineering skills plus ECC's 311 skills, 71 agents, 97 commands and hooks for Claude Code",
+      "version": "1.0.0",
+      "repository": "https://github.com/akshatjainsonujain2003-sudo/skills",
+      "license": "MIT",
+      "category": "workflow"
+    }
+  ]
+}

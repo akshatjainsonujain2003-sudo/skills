@@ -1,0 +1,40 @@
+{
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Emil Kowalski's design engineering skills plus ECC's 311 skills, 71 agents, 97 commands and hooks for Claude Code",
+  "author": {
+    "name": "akshatjainsonujain2003-sudo",
+    "url": "https://github.com/akshatjainsonujain2003-sudo"
+  },
+  "repository": "https://github.com/akshatjainsonujain2003-sudo/skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agents",
+    "commands",
+    "hooks",
+    "design",
+    "animation",
+    "code-review"
+  ],
+  "userConfig": {
+    "hooks_enabled": {
+      "type": "boolean",
+      "title": "Enable ECC hooks",
+      "description": "Run ECC's local lifecycle, quality, and safety automation. Disable this to keep skills, agents and commands without hook automation.",
+      "default": true
+    },
+    "hook_profile": {
+      "type": "string",
+      "title": "ECC hook profile",
+      "description": "Choose minimal, standard, or strict. Invalid values safely fall back to standard.",
+      "default": "standard"
+    }
+  },
+  "skills": [
+    "./skills/"
+  ],
+  "commands": [
+    "./commands/"
+  ]
+}
