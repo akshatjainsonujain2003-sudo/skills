@@ -1,9 +1,10 @@
 # Skills
 
-A collection of agent skills for Claude Code and other coding agents. It brings together two sets:
+A collection of agent skills for Claude Code and other coding agents. It brings together three sets:
 
 - **[Design engineering skills](#design-engineering-skills)**: 7 skills by [Emil Kowalski](https://emilkowal.ski) for building better interfaces and animations.
 - **[ECC skills](#ecc-skills)**: 311 skills from [affaan-m/ECC](https://github.com/affaan-m/ECC) covering frontend, backend, testing, security, DevOps, agent workflows and more.
+- **[Build your own X](#build-your-own-x)**: a skill that finds step-by-step tutorials for re-creating technologies from scratch, from [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x).
 
 ## Install
 
@@ -405,6 +406,14 @@ ECC's agents, commands, hooks, rules and MCP configs are included too; see [ECC 
 
 </details>
 
+## Build your own X
+
+**[build-your-own-x](./skills/build-your-own-x/SKILL.md)** helps your agent find a tutorial for building a technology from scratch, such as a database, Git, Docker, a shell, an interpreter, an operating system or a web browser, in the language you want. Its [catalog](./skills/build-your-own-x/references/tutorials.md) holds all 359 guides from [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) at commit `aa17439`, in 30 categories.
+
+```bash
+npx skills@latest add akshatjainsonujain2003-sudo/skills --skill build-your-own-x
+```
+
 ## ECC agents, commands, hooks, rules and MCP configs
 
 Also imported unchanged from [affaan-m/ECC](https://github.com/affaan-m/ECC) at commit `25278e7`. Installing this repo [as a Claude Code plugin](#as-a-claude-code-plugin) sets up the agents, commands and hooks. The `npx skills` installer only installs skills; without the plugin, set those up by hand as below. Rules and MCP configs are always set up by hand.
@@ -434,3 +443,4 @@ cp -r rules/common rules/typescript ~/.claude/rules/ecc/
 
 - Design engineering skills: MIT, © 2026 Emil Kowalski. See [`LICENSE`](./LICENSE).
 - ECC skills, agents, commands, hooks, scripts, rules and MCP configs: MIT, © 2026 Affaan Mustafa. See [`skills/ECC-LICENSE`](./skills/ECC-LICENSE).
+- Build your own X catalog: public domain ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)), by CodeCrafters, Inc. and contributors.
